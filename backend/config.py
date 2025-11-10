@@ -16,8 +16,12 @@ CHROMA_DIR = BASE_DIR / "chroma_db"
 SURVEY_DATA_FILE = DATA_DIR / "ques0313.txt"
 
 # OpenAI API 配置（使用环境变量，避免硬编码）
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', 'sk-iqQvc8WD5xA1yBKV0a1d1f6736A74a60A68326AeB7D54c9b')
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 OPENAI_BASE_URL = os.getenv('OPENAI_BASE_URL', 'https://api.v3.cm/v1/')
+
+# 检查必需的环境变量
+if not OPENAI_API_KEY:
+    raise ValueError('OPENAI_API_KEY 环境变量未设置，请在 .env 文件或环境变量中配置')
 
 # AI 模型配置
 AI_MODEL = "cc-sonnet-4-5-20250929"
@@ -31,8 +35,8 @@ SIMILARITY_TOP_K = 3
 
 # Flask 配置
 FLASK_HOST = '0.0.0.0'
-FLASK_PORT = 5001  # 改为 5001，避免与系统服务冲突
-DEBUG = True
+FLASK_PORT = int(os.getenv('PORT', 5001))  # Zeabur 会提供 PORT 环境变量
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
 # CORS 配置
-CORS_ORIGINS = ['http://localhost:5173', 'http://localhost:3000']
+CORS_ORIGINS = os.getenv('CORS_ORIGINS', 'http://localhost:5173,http://localhost:3000').split(',')

@@ -1,0 +1,5 @@
+{
+  "build_command": "echo 'Multi-service project'",
+  "install_command": "echo 'Installing dependencies'",
+  "start_command": "echo 'Please deploy backend and frontend separately'"
+}

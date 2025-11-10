@@ -221,18 +221,36 @@ server: {
 
 ## 部署
 
-### 后端部署
+### Zeabur 一键部署（推荐）
+
+本项目已优化为支持 Zeabur 平台部署。详细部署指南请查看：
+
+👉 **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Zeabur 完整部署指南
+
+**快速部署步骤：**
+1. Fork 本仓库到你的 GitHub
+2. 在 [Zeabur](https://zeabur.com) 创建新项目
+3. 分别部署 `backend` 和 `frontend` 两个服务
+4. 配置环境变量
+5. 完成！
+
+### 其他平台部署
+
+#### 后端部署
 
 ```bash
 # 使用 gunicorn 部署
-pip install gunicorn
-gunicorn -w 4 -b 0.0.0.0:5000 app:app
+cd backend
+pip install -r requirements.txt
+gunicorn -w 4 -b 0.0.0.0:$PORT app:app
 ```
 
-### 前端部署
+#### 前端部署
 
 ```bash
 # 构建生产版本
+cd frontend
+npm install
 npm run build
 
 # dist/ 目录可部署到任何静态服务器
