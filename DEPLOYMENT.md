@@ -37,7 +37,7 @@
 
 | 变量名 | 值 | 说明 |
 |--------|-----|------|
-| `OPENAI_API_KEY` | `sk-iqQvc8WD5xA1yBKV0a1d1f6736A74a60A68326AeB7D54c9b` | OpenAI API 密钥 |
+| `OPENAI_API_KEY` | `your-api-key-here` | OpenAI API 密钥（必需） |
 | `OPENAI_BASE_URL` | `https://api.v3.cm/v1/` | API 基础 URL |
 | `CORS_ORIGINS` | `https://your-frontend.zeabur.app` | 前端域名（部署后填写） |
 | `DEBUG` | `False` | 生产环境关闭调试模式 |
@@ -153,7 +153,7 @@
 ### 后端必需环境变量
 
 ```bash
-OPENAI_API_KEY=sk-iqQvc8WD5xA1yBKV0a1d1f6736A74a60A68326AeB7D54c9b
+OPENAI_API_KEY=your-api-key-here
 OPENAI_BASE_URL=https://api.v3.cm/v1/
 CORS_ORIGINS=https://your-frontend.zeabur.app
 DEBUG=False
