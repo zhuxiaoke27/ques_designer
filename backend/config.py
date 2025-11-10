@@ -4,9 +4,16 @@
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 # 项目根目录
 BASE_DIR = Path(__file__).parent
+
+# 加载 .env 文件（本地开发环境）
+env_path = BASE_DIR / '.env'
+if env_path.exists():
+    load_dotenv(env_path)
+    print(f"✓ 已加载本地环境配置: {env_path}")
 
 # 数据目录
 DATA_DIR = BASE_DIR / "data"
