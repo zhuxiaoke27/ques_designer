@@ -31,8 +31,8 @@ SIMILARITY_TOP_K = 3
 
 # Flask 配置
 FLASK_HOST = '0.0.0.0'
-FLASK_PORT = 5001  # 改为 5001，避免与系统服务冲突
-DEBUG = True
+FLASK_PORT = int(os.getenv('PORT', 5001))  # Zeabur 会提供 PORT 环境变量
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
 # CORS 配置
-CORS_ORIGINS = ['http://localhost:5173', 'http://localhost:3000']
+CORS_ORIGINS = os.getenv('CORS_ORIGINS', 'http://localhost:5173,http://localhost:3000').split(',')

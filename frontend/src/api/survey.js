@@ -3,9 +3,19 @@
  */
 import axios from 'axios'
 
+// 获取 API 基础 URL（支持环境变量配置）
+const getBaseURL = () => {
+  // 生产环境使用环境变量或者相对路径
+  if (import.meta.env.VITE_API_BASE_URL) {
+    return import.meta.env.VITE_API_BASE_URL
+  }
+  // 开发环境使用代理
+  return '/api'
+}
+
 // 创建 axios 实例
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: getBaseURL(),
   timeout: 60000, // 60秒超时（AI 生成可能需要较长时间）
   headers: {
     'Content-Type': 'application/json'
