@@ -11,7 +11,7 @@ langchain-community==0.0.38
 chromadb==0.4.24
 
 # Token 计数
-tiktoken==0.7.0
+tiktoken==0.8.0
 
 # 其他依赖
 python-dotenv==1.0.0

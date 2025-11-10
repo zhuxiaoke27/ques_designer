@@ -146,6 +146,25 @@
 - 首次启动会自动创建向量数据库（约 2-3 分钟）
 - 检查后端日志
 
+### Q5: tiktoken 包构建失败
+
+**问题描述**：
+```
+ERROR: Failed building wheel for tiktoken
+× Failed to build installable wheels for some pyproject.toml based projects
+```
+
+**解决方案**：
+本问题已在 `fix-zeabur-tiktoken-build` 分支中修复：
+1. ✅ 升级 tiktoken 到 0.8.0（更好的 Python 3.13 支持）
+2. ✅ 添加 Dockerfile 明确指定 Python 3.12 和构建工具
+3. ✅ 添加 `.python-version` 文件确保版本一致
+
+**修复措施**：
+- 使用 Dockerfile 构建可确保安装必要的编译工具（gcc、g++、make）
+- 明确使用 Python 3.12（避免 Python 3.13 兼容性问题）
+- 升级 tiktoken 版本以获得更好的构建支持
+
 ---
 
 ## 环境变量总结
